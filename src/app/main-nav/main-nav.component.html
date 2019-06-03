@@ -1,36 +1,30 @@
-<mat-sidenav-container class="sidenav-container container-fluid">
-  <mat-sidenav
-      #drawer 
-      class="sidenav" 
-      [ngClass]="{hidden: !(isHandset | async)!.matches}"
-      fixedInViewport="false"  
-      [attr.role]="isHandset ? 'dialog' : 'navigation'"
-      [mode]="(isHandset | async)!.matches ? 'over' : 'side'"
-      [opened]="!(isHandset | async)!.matches">
-    <mat-toolbar color="primary">Menu</mat-toolbar>
-    <mat-nav-list>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" position="end"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="!(isHandset$ | async)">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list class="main-menu-mobile">
       <a mat-list-item routerLink="/">Home</a>
       <a mat-list-item routerLink="/contact">Contact</a>
-      <a mat-list-item routerLink="#">Link 3</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button 
+    <mat-toolbar color="black">
+        <img src="assets/logo.svg" alt="Blein Investment Group" class="logo"/>
+        <span class="spacer"></span>    
+      <button
       type="button"
       aria-label="Toggle sidenav"
       mat-icon-button
       (click)="drawer.toggle()"
-      *ngIf="(isHandset | async)!.matches">
-      <mat-icon aria-label="Side nav toggle icon" >Menu</mat-icon>
+      *ngIf="isHandset$ | async">
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
     </button>
-      <img src="assets/logo.svg" alt="Blein Investment Group" class="logo"/>
-      <span class="spacer"></span>
-      <span class="mat-tool-main-menu">
-      <a mat-list-item routerLink="#">Home</a>
-      <a mat-list-item routerLink="/contact">Contact</a>
-      <a mat-list-item routerLink="#">Link 3</a>
-      </span>
+    <span class="mat-tool-main-menu main-menu-desktop">
+        <a mat-list-item routerLink="/">Home</a>
+        <a mat-list-item routerLink="/contact">Contact</a>
+        </span>
     </mat-toolbar>
     <!-- Add Content Here -->
   </mat-sidenav-content>

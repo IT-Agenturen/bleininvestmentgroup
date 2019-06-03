@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MainNavComponent } from './main-nav/main-nav.component'
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -17,15 +16,16 @@ import {MatListModule} from '@angular/material/list';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
+import { MainNavComponent } from './main-nav/main-nav.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainNavComponent,
     HomeComponent,
     ContactComponent,
+    MainNavComponent,
   ], 
   imports: [
     BrowserModule,
