@@ -1,0 +1,13 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+
+$blein-theme-primary: mat-palette($mat-pink);
+$blein-theme-accent: mat-palette($mat-pink, A200, A100, A400);
+$blein-theme-warning: mat-palette($mat-red);
+
+$blein-themes: mat-light-theme($blein-theme-primary, $blein-theme-accent, $blein-theme-warning);
+
+
+@include angular-material-theme($blein-themes);
